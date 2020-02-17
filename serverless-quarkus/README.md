@@ -28,3 +28,10 @@ Or you can use Docker to build the native executable using: `./mvnw package -Pna
 You can then execute your binary: `./target/serverless-quarkus-1.0.0-SNAPSHOT-runner`
 
 If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image-guide .
+
+# To deploy to AWS
+
+* update `application.properties` to add `quarkus.package.uber-jar=true` in order to build uber jar
+   
+* make sure to use `io.quarkus.amazon.lambda.runtime.QuarkusStreamHandler::handleRequest` as `Handler`
+for `Function code` in aws console
